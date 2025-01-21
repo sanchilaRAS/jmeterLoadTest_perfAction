@@ -32,10 +32,11 @@ jobs:
         with:
                 # JMeter test plan to execute
                 test-plan-path: './practiceLoadTest.jmx'
-                # Where to store the results e.g., result.csv
-                results-file: './result.csv'
-                # Optional arguments. For more details https://jmeter.apache.org/usermanual/get-started.html#non_gui
-                #args: # optional
-          
+      - name: Upload Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: jmeter-results
+          path: result.jtl
+          if-no-files-found: error
 
      
